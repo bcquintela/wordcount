@@ -136,17 +136,19 @@ public class MaxHeap {
         return count;
     }
 
-    // Method to iterate over the Binary Heap and print the frequencies.
-    public void iterateOverHeap() {
+    // Method to iterate over the Binary Heap N times and print the frequencies.
+    public void iterateOverHeap(int n) {
         int origSize = size;
+        int i = 0;
 
-        while(size > 0) {
+        while(size > 0 && i < n) {
             char c = getMax();
             int letterCount = countNodes(c);
 
             System.out.println(MaxHeap.getMax() + ": " + letterCount + " (fr=" +
                     String.format("%.1f", (float) (letterCount * 100) / origSize) + "%)");
             MaxHeap.removeNodes(c);
+            i++;
         }
     }
 }
